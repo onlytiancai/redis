@@ -3,3 +3,4 @@ redis-benchmark
 redis-cli
 redis-server
 *.swp
+*.out
