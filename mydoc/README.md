@@ -111,3 +111,45 @@ gcov and lcov
 	# open http://127.0.0.1/lcov_result/mydoc/hello.c.gcov.html
 
 ![](images/lcov_result.png)
+
+cmocka
+
+	git clone https://git.cryptomilk.org/projects/cmocka.git
+	cd cmocka/
+	mkdir build
+	cd build/
+	cmake ../
+	make
+	sudo make install
+	ldconfig
+	cat test_adlist.c
+
+		#include <stdarg.h>
+		#include <stddef.h>
+		#include <setjmp.h>
+		#include <stdint.h>
+		#include <cmocka.h>
+		#include "adlist.h"
+
+		/* A test case that does nothing and succeeds. */
+		static void test_one(void **state) {
+			list *l = listCreate();
+		}
+
+		int main(void) {
+			const struct CMUnitTest tests[] = {
+				cmocka_unit_test(test_one),
+			};
+
+			return cmocka_run_group_tests(tests, NULL, NULL);
+		}
+
+
+	gcc -o test_adlist.o test_adlist.c adlist.c zmalloc.c -lcmocka
+	./test_adlist.o
+	[==========] tests: Running 1 test(s).
+	[ RUN      ] test_one
+	[       OK ] test_one
+	[==========] tests: 1 test(s) run.
+	[  PASSED  ] 1 test(s).
+
