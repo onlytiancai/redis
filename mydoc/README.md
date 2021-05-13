@@ -153,3 +153,11 @@ cmocka
 	[==========] tests: 1 test(s) run.
 	[  PASSED  ] 1 test(s).
 
+run test
+
+    gcc -fprofile-arcs -ftest-coverage -o test_adlist.o test_adlist.c adlist.c zmalloc.c -lcmocka 
+    ./test_adlist.o
+    gcov zmalloc.c adlist.c
+    lcov -d . -t 'redis test' -o 'redis_test.info' -b . -c
+    genhtml -o test_cov_result redis_test.info
+    ln -s $PWD/test_cov_result /var/www/html/redis_test_cov_result

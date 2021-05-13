@@ -11,4 +11,4 @@ tags
 *.info
 mydoc/hello
 mydoc/result
-
+test_cov_result
