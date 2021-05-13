@@ -36,3 +36,16 @@ gtest demo
         [==========] 1 test from 1 test suite ran. (3 ms total)
         [  PASSED  ] 1 test.
 
+ctags install and use
+
+	sudo apt  install exuberant-ctags
+	ctags --fields=+iaS --extra=+q -R -f ~/.vim/systags /usr/include /usr/local/include
+	ctags -R
+
+	vim ~/.vimrc
+		set tags=tags
+		set tags+=~/.vim/systags
+
+	vim test.cc
+		ctrl+]
+		ctrl+o

@@ -4,3 +4,4 @@ redis-cli
 redis-server
 *.swp
 *.out
+tags
