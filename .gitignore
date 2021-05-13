@@ -5,3 +5,10 @@ redis-server
 *.swp
 *.out
 tags
+*.gcov
+*.gcda
+*.gcno
+*.info
+mydoc/hello
+mydoc/result
+
