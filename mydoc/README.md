@@ -161,3 +161,18 @@ run test
     lcov -d . -t 'redis test' -o 'redis_test.info' -b . -c
     genhtml -o test_cov_result redis_test.info
     ln -s $PWD/test_cov_result /var/www/html/redis_test_cov_result
+
+## error handle
+
+针对每个函数做异常处理：
+- 处理所有错误码
+    - 是否记录日志
+    - 是否终止程序
+    - 是否可以重试
+    - 是否可用其它函数代替
+- 能否被信号中断
+    - 能被哪些信号中断
+    - 中断后如何处理
+- 是否可能阻塞  
+    - 阻塞后如何处理
+    - 处理超时

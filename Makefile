@@ -54,5 +54,10 @@ dep:
 test:
 	tclsh test-redis.tcl
 
+ut:
+	gcc -fprofile-arcs -ftest-coverage -o test_adlist.o test_adlist.c adlist.c zmalloc.c -lcmocka \
+		&&./test_adlist.o \
+		&&gcov zmalloc.c adlist.c
+
 bench:
 	./redis-benchmark
