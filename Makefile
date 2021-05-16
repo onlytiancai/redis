@@ -55,7 +55,7 @@ test:
 	tclsh test-redis.tcl
 
 ut:
-	gcc -Wl,--wrap,zmalloc -fprofile-arcs -ftest-coverage -o test_adlist.o test_adlist.c adlist.c zmalloc.c -lcmocka \
+	rm -f *.gcda && gcc -Wl,--wrap,zmalloc -fprofile-arcs -ftest-coverage -o test_adlist.o test_adlist.c adlist.c zmalloc.c -lcmocka \
 		&&./test_adlist.o \
 		&&gcov zmalloc.c adlist.c
 
